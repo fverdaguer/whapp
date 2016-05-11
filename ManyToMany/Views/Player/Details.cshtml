@@ -1,0 +1,50 @@
+﻿@model ManyToMany.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Player</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team.TeamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerLName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerLName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

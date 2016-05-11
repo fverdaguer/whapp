@@ -1,0 +1,121 @@
+﻿@model ManyToMany.Models.Project
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Project</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ProjectID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FacebookUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FacebookUrl)
+                @Html.ValidationMessageFor(model => model.FacebookUrl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoundcloudUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoundcloudUrl)
+                @Html.ValidationMessageFor(model => model.SoundcloudUrl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="city">Ciudad</label>
+            <div class="col-md-10">
+                <input class="text-box single-line" id="city" name="city" autocomplete="off" data-country="ar">
+                <input type="hidden" id="idSelected">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="form-group col-md-4">
+                <label class="control-label">Géneros Elegidos</label>
+                @Html.ListBox("selectedOptions", (MultiSelectList)ViewBag.selOpts, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-1">
+                <div class="form-group">
+                    <button type="button" id="btnRight" class="btn btn-warning btn-lg">
+                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button type="button" id="btnLeft" class="btn btn-success btn-lg">
+                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                    </button>
+                    <div></div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label">Géneros Disponibles</label>
+                @Html.ListBox("availOptions", (MultiSelectList)ViewBag.availOpts, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">&nbsp;</div>
+            <div class="form-group col-md-4">
+                <label class="control-label">Instrumentos Elegidos</label>
+                @Html.ListBox("selectedOptionsInst", (MultiSelectList)ViewBag.selOptsInst, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-1">
+                <div class="form-group">
+                    <button type="button" id="btnRightInst" class="btn btn-warning btn-lg">
+                        <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button type="button" id="btnLeftInst" class="btn btn-success btn-lg">
+                        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                    </button>
+                    <div></div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label">Instrumentos Disponibles</label>
+                @Html.ListBox("availOptionsInst", (MultiSelectList)ViewBag.availOptsInst, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="btnSubmit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@Scripts.Render("~/bundles/multisel")
+<script>
+    $('input#city').cityAutocomplete();
+</script>
