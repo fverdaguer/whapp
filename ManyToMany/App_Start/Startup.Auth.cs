@@ -28,10 +28,10 @@ namespace ManyToMany
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
+            app.UseFacebookAuthentication(
+               appId: "1517456461899906",
+               appSecret: "24922e59c243dee4656d79df7992e912");
+            
             //app.UseGoogleAuthentication();
         }
     }
