@@ -10,10 +10,6 @@ namespace ManyToMany.DAL
 {
     public class MtoMEntities : DbContext
     {
-        public DbSet<Player> Players { get; set; }
-        public DbSet<Bat> Bats { get; set; }
-        public DbSet<Team> Teams { get; set; }
-
         public DbSet<Project> Projects { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Instrument> Instruments { get; set; }

@@ -117,3 +117,4 @@ C:\Desarrollo\whapp\ManyToMany\obj\Debug\Whapp.csproj.GenerateResource.Cache
 C:\Desarrollo\whapp\ManyToMany\obj\Debug\ManyToMany.dll
 C:\Desarrollo\whapp\ManyToMany\obj\Debug\ManyToMany.pdb
 C:\Desarrollo\whapp\ManyToMany\obj\Debug\ManyToMany.Migrations.LocationFieldsToProject.resources
+C:\Desarrollo\whapp\ManyToMany\obj\Debug\ManyToMany.Migrations.RemoveUnusedEntities.resources

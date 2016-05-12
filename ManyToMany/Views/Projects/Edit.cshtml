@@ -42,11 +42,14 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="city">Ciudad</label>
+            @Html.LabelFor(model => model.LocationName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="text-box single-line" id="city" name="city" autocomplete="off" data-country="ar">
-                <input type="hidden" id="idSelected">
+                @Html.TextBoxFor(model => model.LocationName, new { @autocomplete = "off", @data_country = "ar" })
+                @Html.ValidationMessageFor(model => model.LocationName)
 
+                @Html.HiddenFor(model => model.LocationGooglePlaceId)
+                @Html.HiddenFor(model => model.LocationLatitude)
+                @Html.HiddenFor(model => model.LocationLongitude)
             </div>
         </div>
 
@@ -117,5 +120,5 @@
 }
 @Scripts.Render("~/bundles/multisel")
 <script>
-    $('input#city').cityAutocomplete();
+    $('input#LocationName').cityAutocomplete();
 </script>

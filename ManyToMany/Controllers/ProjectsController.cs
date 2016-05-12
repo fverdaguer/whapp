@@ -137,7 +137,7 @@ namespace ManyToMany.Controllers
                 .Single();
 
             if (TryUpdateModel(projectToUpdate, "",
-                   new string[] { "ProjectID", "Title", "FacebookUrl", "SoundcloudUrl" }))
+                   new string[] { "ProjectID", "Title", "FacebookUrl", "SoundcloudUrl", "LocationName", "LocationGooglePlaceId", "LocationLatitude", "LocationLongitude" }))
             {
                 try
                 {

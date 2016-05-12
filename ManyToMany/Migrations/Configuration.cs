@@ -20,27 +20,6 @@ namespace ManyToMany.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
 
-            context.Teams.AddOrUpdate(
-              p => p.TeamName,
-              new Team { TeamName="Blackhawks" },
-              new Team { TeamName="Jays" }
-            );
-            context.SaveChanges();
-
-            context.Players.AddOrUpdate(p=>p.PlayerLName,
-                new Player { PlayerFName="Joe", PlayerLName="Blow", DOB=DateTime.Parse("1990-01-01"), TeamID=2 },
-                new Player { PlayerFName="Sam", PlayerLName="Smith", DOB=DateTime.Parse("1990-01-01"), TeamID=2 },
-                new Player { PlayerFName="Fred", PlayerLName="Flintstone", DOB=DateTime.Parse("1990-01-01"), TeamID=1 }
-            );
-            context.SaveChanges();
-
-            context.Bats.AddOrUpdate(b => b.BatName,
-                new Bat { BatName = "Wonderboy" },
-                new Bat { BatName = "Hard-Hitter" },
-                new Bat { BatName = "Slugger" }
-                );
-            context.SaveChanges();
-
             context.Genres.AddOrUpdate(g => g.Name,
                 new Genre { Name = "Rock" },
                 new Genre { Name = "Punk" },
