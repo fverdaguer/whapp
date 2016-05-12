@@ -1,5 +1,7 @@
 (function ( $ ) {
-    $.fn.cityAutocomplete = function(options) {
+    $.fn.cityAutocomplete = function (options) {
+        var $attrib = $('<div id="attributions"></div>');
+        var placesService = new google.maps.places.PlacesService($attrib[0]);
         var autocompleteService = new google.maps.places.AutocompleteService();
         var predictionsDropDown = $('<div class="city-autocomplete" id=""></div>').appendTo('body');
         var input = this;
@@ -25,9 +27,14 @@
 
         predictionsDropDown.delegate('div', 'click', function() {
             input.val($(this).text());
-			$('#idSelected').val($(this).attr('id'));
-			//alert($(this).attr('id'));
-            predictionsDropDown.hide();
+            $('#LocationGooglePlaceId').val($(this).attr('id'));
+
+    		predictionsDropDown.hide();
+
+			placesService.getDetails({ placeId: $(this).attr('id') }, function (results, status) {
+			    $('#LocationLatitude').val(results.geometry.location.lat());
+			    $('#LocationLongitude').val(results.geometry.location.lng());
+            });
         });
 
         $(document).mouseup(function (e) {

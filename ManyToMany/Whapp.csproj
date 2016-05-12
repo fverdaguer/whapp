@@ -165,6 +165,10 @@
     <Compile Include="Controllers\BatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Migrations\201605111948139_LocationFieldsToProject.cs" />
+    <Compile Include="Migrations\201605111948139_LocationFieldsToProject.Designer.cs">
+      <DependentUpon>201605111948139_LocationFieldsToProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ProjectInstrumentViewModel.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="DAL\MtoMEntities.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602200240315_instproj.resx">
       <DependentUpon>201602200240315_instproj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605111948139_LocationFieldsToProject.resx">
+      <DependentUpon>201605111948139_LocationFieldsToProject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

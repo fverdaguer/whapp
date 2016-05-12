@@ -17,7 +17,7 @@ namespace ManyToMany.DAL
         public DbSet<Project> Projects { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Instrument> Instruments { get; set; }
-
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //This option keeps table names in singular form, my personal preference.

@@ -14,5 +14,12 @@ namespace ManyToMany.Models
         public string SoundcloudUrl { get; set; }
         public virtual ICollection<Genre> Genres { get; set; }
         public virtual ICollection<Instrument> Instruments { get; set; }
+        
+        //Location Fields
+
+        public string LocationName { get; set; }
+        public string LocationGooglePlaceId { get; set; }
+        public double LocationLatitude { get; set; }
+        public double LocationLongitude { get; set; }
     }
 }

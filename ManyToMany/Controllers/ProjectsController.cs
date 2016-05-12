@@ -57,7 +57,7 @@ namespace ManyToMany.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProjectID,Title,FacebookUrl,SoundcloudUrl")] Project project, string[] selectedOptions, string[] selectedOptionsInst)
+        public ActionResult Create([Bind(Include = "ProjectID,Title,FacebookUrl,SoundcloudUrl,LocationName,LocationGooglePlaceId,LocationLatitude,LocationLongitude")] Project project, string[] selectedOptions, string[] selectedOptionsInst)
         {
             if (selectedOptions != null)
             {
