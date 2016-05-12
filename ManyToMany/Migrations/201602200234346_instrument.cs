@@ -1,13 +1,12 @@
-namespace ManyToMany.Migrations
+namespace Whapp.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class instrument : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
+            this.CreateTable(
                 "dbo.Instrument",
                 c => new
                     {
@@ -23,9 +22,9 @@ namespace ManyToMany.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Instrument", "Project_ProjectID", "dbo.Project");
-            DropIndex("dbo.Instrument", new[] { "Project_ProjectID" });
-            DropTable("dbo.Instrument");
+            this.DropForeignKey("dbo.Instrument", "Project_ProjectID", "dbo.Project");
+            this.DropIndex("dbo.Instrument", new[] { "Project_ProjectID" });
+            this.DropTable("dbo.Instrument");
         }
     }
 }

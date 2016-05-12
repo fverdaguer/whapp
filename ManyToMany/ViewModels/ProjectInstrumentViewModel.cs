@@ -1,4 +1,4 @@
-﻿namespace ManyToMany.ViewModels
+﻿namespace Whapp.ViewModels
 {
     public class ProjectInstrumentViewModel
     {

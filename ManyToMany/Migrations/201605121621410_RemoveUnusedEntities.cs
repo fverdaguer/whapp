@@ -1,27 +1,26 @@
-namespace ManyToMany.Migrations
+namespace Whapp.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class RemoveUnusedEntities : DbMigration
     {
         public override void Up()
         {
-            DropForeignKey("dbo.PlayerBat", "Player_ID", "dbo.Player");
-            DropForeignKey("dbo.PlayerBat", "Bat_ID", "dbo.Bat");
-            DropForeignKey("dbo.Player", "TeamID", "dbo.Team");
-            DropIndex("dbo.Player", new[] { "TeamID" });
-            DropIndex("dbo.PlayerBat", new[] { "Player_ID" });
-            DropIndex("dbo.PlayerBat", new[] { "Bat_ID" });
-            DropTable("dbo.Bat");
-            DropTable("dbo.Player");
-            DropTable("dbo.Team");
-            DropTable("dbo.PlayerBat");
+            this.DropForeignKey("dbo.PlayerBat", "Player_ID", "dbo.Player");
+            this.DropForeignKey("dbo.PlayerBat", "Bat_ID", "dbo.Bat");
+            this.DropForeignKey("dbo.Player", "TeamID", "dbo.Team");
+            this.DropIndex("dbo.Player", new[] { "TeamID" });
+            this.DropIndex("dbo.PlayerBat", new[] { "Player_ID" });
+            this.DropIndex("dbo.PlayerBat", new[] { "Bat_ID" });
+            this.DropTable("dbo.Bat");
+            this.DropTable("dbo.Player");
+            this.DropTable("dbo.Team");
+            this.DropTable("dbo.PlayerBat");
         }
         
         public override void Down()
         {
-            CreateTable(
+            this.CreateTable(
                 "dbo.PlayerBat",
                 c => new
                     {
@@ -30,7 +29,7 @@ namespace ManyToMany.Migrations
                     })
                 .PrimaryKey(t => new { t.Player_ID, t.Bat_ID });
             
-            CreateTable(
+            this.CreateTable(
                 "dbo.Team",
                 c => new
                     {
@@ -39,7 +38,7 @@ namespace ManyToMany.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
-            CreateTable(
+            this.CreateTable(
                 "dbo.Player",
                 c => new
                     {
@@ -51,7 +50,7 @@ namespace ManyToMany.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
-            CreateTable(
+            this.CreateTable(
                 "dbo.Bat",
                 c => new
                     {
@@ -60,12 +59,12 @@ namespace ManyToMany.Migrations
                     })
                 .PrimaryKey(t => t.ID);
             
-            CreateIndex("dbo.PlayerBat", "Bat_ID");
-            CreateIndex("dbo.PlayerBat", "Player_ID");
-            CreateIndex("dbo.Player", "TeamID");
-            AddForeignKey("dbo.Player", "TeamID", "dbo.Team", "ID");
-            AddForeignKey("dbo.PlayerBat", "Bat_ID", "dbo.Bat", "ID", cascadeDelete: true);
-            AddForeignKey("dbo.PlayerBat", "Player_ID", "dbo.Player", "ID", cascadeDelete: true);
+            this.CreateIndex("dbo.PlayerBat", "Bat_ID");
+            this.CreateIndex("dbo.PlayerBat", "Player_ID");
+            this.CreateIndex("dbo.Player", "TeamID");
+            this.AddForeignKey("dbo.Player", "TeamID", "dbo.Team", "ID");
+            this.AddForeignKey("dbo.PlayerBat", "Bat_ID", "dbo.Bat", "ID", cascadeDelete: true);
+            this.AddForeignKey("dbo.PlayerBat", "Player_ID", "dbo.Player", "ID", cascadeDelete: true);
         }
     }
 }

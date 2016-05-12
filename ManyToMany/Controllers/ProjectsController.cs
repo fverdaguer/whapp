@@ -6,13 +6,15 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ManyToMany.Models;
-using ManyToMany.DAL;
-using ManyToMany.ViewModels;
 using System.Data.Entity.Infrastructure;
 
 namespace ManyToMany.Controllers
 {
+    using Whapp.DAL;
+    using Whapp.Helpers;
+    using Whapp.Models;
+    using Whapp.ViewModels;
+
     public class ProjectsController : Controller
     {
         private MtoMEntities db = new MtoMEntities();

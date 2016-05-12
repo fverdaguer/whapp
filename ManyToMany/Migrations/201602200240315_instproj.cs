@@ -1,15 +1,14 @@
-namespace ManyToMany.Migrations
+namespace Whapp.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class instproj : DbMigration
     {
         public override void Up()
         {
-            DropForeignKey("dbo.Instrument", "Project_ProjectID", "dbo.Project");
-            DropIndex("dbo.Instrument", new[] { "Project_ProjectID" });
-            CreateTable(
+            this.DropForeignKey("dbo.Instrument", "Project_ProjectID", "dbo.Project");
+            this.DropIndex("dbo.Instrument", new[] { "Project_ProjectID" });
+            this.CreateTable(
                 "dbo.InstrumentProject",
                 c => new
                     {
@@ -22,19 +21,19 @@ namespace ManyToMany.Migrations
                 .Index(t => t.Instrument_InstrumentID)
                 .Index(t => t.Project_ProjectID);
             
-            DropColumn("dbo.Instrument", "Project_ProjectID");
+            this.DropColumn("dbo.Instrument", "Project_ProjectID");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Instrument", "Project_ProjectID", c => c.Int());
-            DropForeignKey("dbo.InstrumentProject", "Project_ProjectID", "dbo.Project");
-            DropForeignKey("dbo.InstrumentProject", "Instrument_InstrumentID", "dbo.Instrument");
-            DropIndex("dbo.InstrumentProject", new[] { "Project_ProjectID" });
-            DropIndex("dbo.InstrumentProject", new[] { "Instrument_InstrumentID" });
-            DropTable("dbo.InstrumentProject");
-            CreateIndex("dbo.Instrument", "Project_ProjectID");
-            AddForeignKey("dbo.Instrument", "Project_ProjectID", "dbo.Project", "ProjectID");
+            this.AddColumn("dbo.Instrument", "Project_ProjectID", c => c.Int());
+            this.DropForeignKey("dbo.InstrumentProject", "Project_ProjectID", "dbo.Project");
+            this.DropForeignKey("dbo.InstrumentProject", "Instrument_InstrumentID", "dbo.Instrument");
+            this.DropIndex("dbo.InstrumentProject", new[] { "Project_ProjectID" });
+            this.DropIndex("dbo.InstrumentProject", new[] { "Instrument_InstrumentID" });
+            this.DropTable("dbo.InstrumentProject");
+            this.CreateIndex("dbo.Instrument", "Project_ProjectID");
+            this.AddForeignKey("dbo.Instrument", "Project_ProjectID", "dbo.Project", "ProjectID");
         }
     }
 }

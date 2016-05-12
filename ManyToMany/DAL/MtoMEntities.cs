@@ -1,13 +1,10 @@
-﻿using ManyToMany.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Web;
-
-namespace ManyToMany.DAL
+﻿namespace Whapp.DAL
 {
+    using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
+
+    using Whapp.Models;
+
     public class MtoMEntities : DbContext
     {
         public DbSet<Project> Projects { get; set; }

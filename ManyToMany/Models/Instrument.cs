@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ManyToMany.Models
+﻿namespace Whapp.Models
 {
+    using System.Collections.Generic;
+
     public class Instrument
     {
         public int InstrumentID { get; set; }

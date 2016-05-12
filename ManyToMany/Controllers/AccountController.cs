@@ -8,10 +8,11 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
-using ManyToMany.Models;
 
 namespace ManyToMany.Controllers
 {
+    using Whapp.Models;
+
     [Authorize]
     public class AccountController : Controller
     {
